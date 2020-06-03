@@ -31,7 +31,7 @@ defined space in [Experiment Configuration].
 
 ## 1. Installation process
 ```shell
-pip install git+https://github.com/Brillone/labs
+pip install labs
 ```
 
 ## 2. Docs
