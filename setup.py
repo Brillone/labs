@@ -1,4 +1,5 @@
 import setuptools
+import labs
 
 
 with open("README.md", "r") as fh:
@@ -7,7 +8,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="labs",
-    version="0.0.1",
+    version=labs.__version__,
     author="Eran Brill",
     author_email="brillonedev@gmail.com",
     description="labs - a dask-distributed experiments manager",
