@@ -1,0 +1,62 @@
+{
+  "experiments": [
+    {
+      "run_id": null,
+      "experiment_name": "lgbm_reg_dummy",
+      "description": "Dummy Regression using lgbm reg type",
+      "problem_name": "Dummy Regression",
+      "artifacts_path": "local_test/artifacts",
+      "tune_config": {
+        "space": {
+          "n_estimators": {
+            "search_vals": [
+              100,
+              200,
+              1000,
+              2000
+            ],
+            "type": "list"
+          },
+          "learning_rate": {
+            "search_vals": [
+              0.0001,
+              0.001
+            ],
+            "type": "log-space",
+            "count": 2
+          },
+          "max_depth": {
+            "search_vals": [
+              3
+            ],
+            "type": "list"
+          },
+          "n_jobs": {
+            "search_vals": -1,
+            "type": "static"
+          }
+        },
+        "search_params": {},
+        "n_experiments": 3,
+        "experiments_batch_size": 4,
+        "type": "grid-search",
+        "score_threshold": 16900
+      },
+      "evaluation_config": {
+        "metrics": {
+          "MSE":  "min",
+          "MAE": "min"
+        },
+        "main_metric": "MSE"
+      },
+      "dask_config": {
+          "n_workers": 4,
+          "threads_per_worker": 1,
+          "processes": true
+      }
+    }
+  ],
+  "type": "local",
+  "mode": "research",
+  "slack_config": null
+}

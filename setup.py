@@ -1,0 +1,33 @@
+import setuptools
+
+
+with open("README.md", "r") as fh:
+    long_description = fh.read()
+
+
+setuptools.setup(
+    name="labs",
+    version="0.0.1",
+    author="Eran Brill",
+    author_email="brillone@gmail.com",
+    description="labs - a dask-distributed experiments mangaer",
+    long_description=long_description,
+    long_description_content_type="text/markdown",
+    url="https://github.com/Brillone/labs",
+    packages=['labs'],
+    classifiers=[
+        "Programming Language :: Python :: 3",
+        "License :: MIT License",
+        "Operating System :: OS Independent",
+    ],
+    python_requires='>=3.6',
+    install_requires=[
+                        'numpy==1.18.4',
+                        'dask==2.16.0',
+                        'distributed==2.16.0',
+                        'slacker==0.14.0',
+                        'scipy==1.4.1',
+                        'scikit-learn==0.23.0',
+                        'scikit-optimize==0.7.4'
+                    ]
+)
