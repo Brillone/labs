@@ -52,7 +52,8 @@ The future plan is to use Dask rich and developed ecosystem, for simple and fast
 options. 
 
 ### Future developments:
-* pytest testing
+* pytest testing.
+* Flow options - checkpoint saving, time caps, delta improvement and more.
 * Docker support.
 * Kubernetes support.  
 * Experiments Artifact saved in cloud storage options.
