@@ -15,7 +15,7 @@ setuptools.setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/Brillone/labs",
-    download_url='https://github.com/Brillone/labs/archive/v0.0.1.tar.gz',
+    download_url='https://github.com/Brillone/labs/archive/v0.0.3.tar.gz',
     packages=['labs'],
     classifiers=[
         "Programming Language :: Python :: 3",
