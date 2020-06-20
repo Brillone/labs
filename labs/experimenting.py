@@ -98,10 +98,9 @@ class LocalExperimenter(_Experimenter):
 
         # load scores from related path
         with open(experiment_artifacts_path + '/' + 'scores.json', 'r') as f:
-            scores = json.load(f)
+            scores = json.load(f).get('scores')
 
         # add scores
         experiment_executed['scores'] = scores
 
         return experiment_executed
-
