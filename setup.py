@@ -15,7 +15,7 @@ setuptools.setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/Brillone/labs",
-    download_url='https://github.com/Brillone/labs/archive/v0.0.3.tar.gz',
+    download_url='https://github.com/Brillone/labs/archive/v0.0.4.tar.gz',
     packages=['labs'],
     classifiers=[
         "Programming Language :: Python :: 3",
@@ -24,9 +24,10 @@ setuptools.setup(
     ],
     python_requires='>=3.6',
     install_requires=[
+                        'bokeh==2.0.0',
                         'numpy==1.18.4',
-                        'dask==2.16.0',
-                        'distributed==2.16.0',
+                        'dask==2.18.0',
+                        'distributed==2.18.0',
                         'slacker==0.14.0',
                         'scipy==1.4.1',
                         'scikit-learn==0.23.0',
