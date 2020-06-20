@@ -26,7 +26,7 @@ class Reporter:
         logger = logging.getLogger('Labs')
 
         # if handler already exists in logger name "Labs", get the logger instance
-        if logger.hasHandlers():
+        if len(logger.handlers) > 0:
             return logger
 
         logger.setLevel(logging.INFO)
@@ -81,6 +81,3 @@ class SlackBot:
         :param text: test to send.
         """
         self._slack_bot.chat.post_message(channel=self.slack_recipient, text=text, as_user=False)
-
-
-

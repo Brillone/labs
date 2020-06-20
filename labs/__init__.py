@@ -3,7 +3,7 @@ from .wrappers import experiment_path
 
 
 # version
-__version__ = '0.0.3'
+__version__ = '0.0.4'
 
 
 # fix skopt MaskedArray incompatibility
