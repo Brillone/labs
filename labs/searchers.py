@@ -514,4 +514,3 @@ class SkoptSearcher(_Searcher):
                                             name=param_name)
 
         return space
-
