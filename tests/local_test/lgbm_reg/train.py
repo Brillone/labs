@@ -1,27 +1,37 @@
-# base
-from labs import experiment_path
+import os
+import sys
 import json
 import argparse
+
+# system paths
+cwd = os.getcwd()
+sys.path.append(cwd)
+
+# labs
+from labs import experiment_path
 
 # internal
 from tests.local_test.lgbm_reg.modeling import create_model, save_model
 from tests.local_test.utils.data_handling import load_data, create_cv_data
 from tests.local_test.utils.evaluation import evaluate, save_model_scores, summarize_scores
-from tests.local_test.lgbm_reg.config import data_config, cv_config
+
+
+# configs
+data_path="datasets/medium_size"
+cv_config = dict(n=5, seed=111)
+target_name="target"
+features_names=['col1', 'col2', 'col3', 'col4', 'col5', 'col6', 'col7',
+                'col8', 'col9', 'col10', 'col11', 'col12', 'col13', 'col14', 'col15']
 
 
 @experiment_path
 def lgbm_reg(experiment, artifacts_path, metrics):
     # init
-    data = load_data(data_config['data_path'])
+    data = load_data(data_path)
     cv_data = create_cv_data(data['X_train'], data['y_train'], cv_config=cv_config)
 
     # hyperparams
     model = create_model(experiment['hyperparams'])
-
-    # data config
-    features_names = data_config['features_names']
-    target_name = data_config['target_name']
 
     # scores dict
     scores = {'raw_cv_scores': {}, 'cv_scores': {}, 'test_scores': {}}
@@ -76,48 +86,4 @@ def lgbm_reg(experiment, artifacts_path, metrics):
     experiment['scores'] = scores
 
     save_model(final_model, artifacts_path)
-    save_model_scores(experiment['scores'], artifacts_path)
-
-
-def get_parser():
-    parser = argparse.ArgumentParser(description='Experiment params')
-    parser.add_argument('--ix',
-                        action='store',
-                        type=int)
-
-    parser.add_argument('--hyperparams',
-                        action='store',
-                        type=str)
-
-    parser.add_argument('--artifacts_path',
-                        action='store',
-                        type=str)
-
-    parser.add_argument('--metrics',
-                        action='store',
-                        type=str)
-
-    return parser
-
-
-def process_arg_parser(parser):
-    args = parser.parse_args()
-
-    experiment = {'ix': args.ix, 'hyperparams': json.loads(args.hyperparams)}
-
-    artifacts_path = args.artifacts_path
-
-    metrics = args.metrics
-
-    kwargs = {'experiment': experiment, 'artifacts_path': artifacts_path, 'metrics': metrics}
-
-    return kwargs
-
-
-if __name__ == '__main__':
-    my_parser = get_parser()
-
-    kwargs = process_arg_parser(my_parser)
-
-    main(**kwargs)
-
+    save_model_scores(experiment, artifacts_path)

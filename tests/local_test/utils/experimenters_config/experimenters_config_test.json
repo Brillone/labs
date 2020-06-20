@@ -1,0 +1,191 @@
+{
+  "experiments": [
+    {
+      "run_id": null,
+      "experiment_name": "lgbm_reg_dummy_gs",
+      "description": "Dummy Regression using lgbm with grid search tuning",
+      "problem_name": "DummyRegression",
+      "artifacts_path": "tests/local_test/artifacts",
+      "tune_config": {
+        "space": {
+          "n_estimators": {
+            "search_vals": [
+              100,
+              250,
+              500,
+              1000,
+              2000
+            ],
+            "type": "list"
+          },
+          "learning_rate": {
+            "search_vals": [
+              -4,
+              -1
+            ],
+            "type": "log-space",
+            "count": 4
+          },
+          "max_depth": {
+            "search_vals": [
+              3, 5
+            ],
+            "type": "list"
+          },
+          "n_jobs": {
+            "search_vals": -1,
+            "type": "static"
+          },
+          "random_state": {
+            "search_vals": 1234,
+            "type": "static"
+          }
+        },
+        "search_params": {},
+        "experiments_batch_size": 4,
+        "type": "grid-search",
+        "score_threshold": 16900,
+        "delete_experiments": false
+      },
+      "evaluation_config": {
+        "metrics": {
+          "MSE":  "min",
+          "MAE": "min"
+        },
+        "main_metric": "MSE"
+      },
+      "dask_config": {
+          "host": "0.0.0.0",
+          "n_workers": 4,
+          "threads_per_worker": 2,
+          "processes": true
+      }
+    },
+    {
+      "run_id": null,
+      "experiment_name": "lgbm_reg_dummy_rs",
+      "description": "Dummy Regression using lgbm with random search tuning",
+      "problem_name": "DummyRegression",
+      "artifacts_path": "tests/local_test/artifacts",
+      "tune_config": {
+        "space": {
+          "n_estimators": {
+            "search_vals": [
+              100,
+              2000
+            ],
+            "type": "int-uniform"
+          },
+          "learning_rate": {
+            "search_vals": [
+              0.1
+            ],
+            "type": "exp"
+          },
+          "max_depth": {
+            "search_vals": [
+              3,
+              5
+            ],
+            "type": "categorical"
+          },
+          "n_jobs": {
+            "search_vals": -1,
+            "type": "static"
+          },
+          "random_state": {
+            "search_vals": 1234,
+            "type": "static"
+          }
+        },
+        "search_params": {
+          "random_state": 1234
+        },
+        "n_experiments": 40,
+        "experiments_batch_size": 4,
+        "type": "random-search",
+        "score_threshold": 16900,
+        "delete_experiments": false
+      },
+      "evaluation_config": {
+        "metrics": {
+          "MSE": "min",
+          "MAE": "min"
+        },
+        "main_metric": "MSE"
+      },
+      "dask_config": {
+          "host": "0.0.0.0",
+          "n_workers": 4,
+          "threads_per_worker": 2,
+          "processes": true
+      }
+    },
+    {
+      "run_id": null,
+      "experiment_name": "lgbm_reg_dummy_bs",
+      "description": "Dummy Regression using lgbm with bayesian guassian process search tuning",
+      "problem_name": "DummyRegression",
+      "artifacts_path": "tests/local_test/artifacts",
+      "tune_config": {
+        "space": {
+          "n_estimators": {
+            "search_vals": [
+              100,
+              2000
+            ],
+            "type": "integer"
+          },
+          "learning_rate": {
+            "search_vals": [
+              0.0001,
+              0.1
+            ],
+            "type": "real"
+          },
+          "max_depth": {
+            "search_vals": [
+              3,
+              5
+            ],
+            "type": "categorical"
+          },
+          "n_jobs": {
+            "search_vals": -1,
+            "type": "static"
+          },
+          "random_state": {
+            "search_vals": 1234,
+            "type": "static"
+          }
+        },
+        "search_params": {
+            "base_estimator": "GP",
+            "n_initial_points": 5,
+            "random_state": 1234
+        },
+        "n_experiments": 40,
+        "experiments_batch_size": 4,
+        "type": "skopt",
+        "score_threshold": 16900,
+        "delete_experiments": false
+      },
+      "evaluation_config": {
+        "metrics": {
+          "MSE":  "min",
+          "MAE": "min"
+        },
+        "main_metric": "MSE"
+      },
+      "dask_config": {
+          "host": "0.0.0.0",
+          "n_workers": 4,
+          "threads_per_worker": 2,
+          "processes": true
+      }
+    }
+  ],
+  "type": "local",
+  "mode": "research",
+  "slack_config": null
+}

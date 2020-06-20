@@ -36,4 +36,4 @@ def summarize_scores(raw_scores):
 
 def save_model_scores(scores, save_path):
     with open(save_path + '/' + 'scores' + '.json', 'w') as f:
-        json.dump(scores, f)
+        json.dump(scores, f, indent=4)
