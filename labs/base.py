@@ -64,13 +64,13 @@ class _Experimenter(ABC):
         :param slack_config: a Slacker instance
         """
 
-        self.experiment_name = 'Unknown' if experiment_name == '' else experiment_name
+        self.experiment_name = 'ExperimentUnknown' if experiment_name == '' else experiment_name
         self.run_id = self._init_run_id() if run_id is None else run_id
 
         self.description = description
         self.problem_name = problem_name
 
-        self.artifacts_path = os.path.join(artifacts_path, self.run_id)
+        self.artifacts_path = os.path.join(artifacts_path, self.experiment_name)
 
         # config
         self.dask_config = dask_config
