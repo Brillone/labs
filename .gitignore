@@ -2,9 +2,12 @@
 ###################
 *.pickle
 *.parquet
+
+# secrets #
+###################
 .env
 
-# Dask #
+# dask #
 ###################
 dask-worker-space/
 
@@ -13,7 +16,11 @@ dask-worker-space/
 */.idea/workspace.xml
 */.idea/tasks.xml
 
-# bytecode #
+# vscode #
+.devcontainer/
+.vscode/
+
+# cache #
 ############
 __pycache__/
 
