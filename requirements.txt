@@ -1,6 +1,6 @@
 bokeh==2.0.0
 numpy==1.18.4
-dask==2.16.0
+dask==2021.10.0
 distributed==2.16.0
 lightgbm==2.3.1
 pandas==1.0.3
