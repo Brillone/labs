@@ -1,5 +1,5 @@
 bokeh==2.0.0
-numpy==1.18.4
+numpy==1.22.0
 dask==2.16.0
 distributed==2.16.0
 lightgbm==2.3.1

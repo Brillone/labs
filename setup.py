@@ -25,7 +25,7 @@ setuptools.setup(
     python_requires='>=3.6',
     install_requires=[
                         'bokeh==2.0.0',
-                        'numpy==1.18.4',
+                        'numpy==1.22.0',
                         'dask==2.18.0',
                         'distributed==2.18.0',
                         'slacker==0.14.0',
