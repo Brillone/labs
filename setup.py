@@ -27,7 +27,7 @@ setuptools.setup(
                         'bokeh==2.0.0',
                         'numpy==1.18.4',
                         'dask==2.18.0',
-                        'distributed==2.18.0',
+                        'distributed==2021.10.0',
                         'slacker==0.14.0',
                         'scipy==1.4.1',
                         'scikit-learn==0.23.0',
